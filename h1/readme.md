@@ -4,9 +4,13 @@ Kuuntelin Darknet Diaries -podcastin jakson "77: Olympic Destroyer"
 
 - Episodi kertoo vuoden Etelä-Korean järjestämien 2018 talviolympialaisten tietojärjestelmään kohdistuneesta verkkohyökkäyksestä
 - Jaksossa on vieraana aihetta tutkinut journalisti Andy Greenberg
+- Hyökkäyksessä käytettiin "olympic destroyer" -nimen saanutta haittaohjelmaa, jonka tarkoituksena oli varastaa käyttäjien tunnuksia ja salasanoja järjestelmästä
+- Haittaohjelma oli kirjoitettu niin, että sen alkuperää oli vaikea selvittää, sillä siihen oli rakennettu lukuisia false flageja joilla yritettiin harhauttaa tutkijoita
+- Useita false flageja: ohjelmaan oli rakennettu viitteitä mm. kiinalaisista ja pohjois-korealaisista hakkeriryhmistä
+- Lopulta tietoturvayritys sai useiden johtolankojen kautta selville, että hyökkäysohjelman oli tuottanut hyvin todennäköisesti sama venäläinen hakkeriryhmä, joka oli hyökännyt Ukrainan infrastruktuuria vastaan
 - Edellisissä talviolympialaisissa Venäjän Sochissa Venäjän joukkueen urheilijat voittivat useita kultamitaleita, ja jälkeenpäin tehty tutkinta osoitti että useita joukkueen dopingnäytteitä oli väärennetty. Tämän johdosta Venäjän valtion joukkueen urheilijoiden osallistuminen estettiin vuoden 2018 talviolympialaisissa.
 - Etelä-Korean talviolympialaisten tietojärjestelmiin kohdistunut hyökkäys oli ilmeisesti venäläistä alkuperää - sen epäillään olleen kosto Venäjälle asetetuista kilpailukielloista. Venäjä on kieltänyt täysin olleensa osallisena hyökkäykseen.
-- 
+
 
 ## a) WebGoat -asennus 
 
