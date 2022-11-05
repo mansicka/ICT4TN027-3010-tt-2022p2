@@ -152,6 +152,32 @@ Viimein sain yhteyden auki, mutta se kaatui miltei heti aukeamisen jälkeen. Sai
 ![](./img/mt_terkut.png)
 
 
+## e) Vulnhub -kone: Evilbox one
+
+Päätin kokeilla murtautua Vulnhubin Evilboxe one -koneeseen. Pystytin lataamani virtuaalikoneen samaan verkkoon Kali Linuxin ja Metasploitable 2:n kanssa.
+`nmap` koko lähiverkolle kertoi, että kone oli toiminnassa ja oli saanut verkkoyhteyden. nmap ei kuitenkaan kertonut, mitä palveluita avoimissa porteissa oli, joten päädyin ajamaan saman komennon kuin ensimäistä kertaa metasploitable 2:sta skannatessani, eli `nmap -sV --script=banner {kohde}`.
+
+![](./img/evil_nmap.png)
+
+Seuraavaksi halusin tallentaa nmapin tulokset metasploitin kantaan. `db_nmap` ei kuitenkaan tallentanut palveluiden nimiä ja versioita:
+
+![](./img/evil_puuttu.png)
+
+Ajoin `db_nmap -sV` ja palvelut näkyivät nyt kannassa.
+![](./img/evil_eipuutu_D.png)
+
+Porttiskannauksen tuloksena selviää, että koneen käyttöjärjestelmä on  Debian Linux ja se pyörittää Apache -web-palvelinta. Pikainen vierailu koneen osoitteessa Firefoxilla todentaa tämän:
+
+![](./img/evilbox_sivu.png)
+
+
+Olen joskus lukenut ohimennen verkkosivujen skannauksesta bruteforce-wordlist -työkaluilla. Pienen kaivelun jälkeen selvisi että Kali Linuxissa on valmiina dirb, joka tekee juuri tämän: se etsii oman sanakirjastonsa perusteella hakemistoja ja tiedostoja verkkosivulta. Komento `dirb {verkko-osoite}` tulostaa seuraavaa:
+![](./img/dirb.png)
+
+dirbin löytämä, hämmentävän kiusallisesti nimetty 'secret' -hakemisto kiinnostaa, ja päätän kurkistaa sinne selaimen avulla. Sivu on tyhjä eikä dev-tabin verkkoliikenteessä näy mitään erikoista.
+
+Päätän jättää yrityksen toiseen kertaan. Tämän ratkaisu vaatinee vielä opiskelua.
+
 
 ## Lähteet:
 
@@ -164,3 +190,8 @@ Viimein sain yhteyden auki, mutta se kaatui miltei heti aukeamisen jälkeen. Sai
 -https://nmap.org/book/man-version-detection.html
 
 -https://www.geeksforgeeks.org/what-is-banner-grabbing/
+
+-https://vulnhub.com/entry/evilbox-one,736/
+
+-https://www.kali.org/tools/dirb/
+
