@@ -100,13 +100,16 @@ Nmap done: 1 IP address (1 host up) scanned in 26.93 seconds
 Koska Metasploitable 2 on haavoittuvaksi rakennettu alusta, siihen on asennettu monia palveluita, jotka näkyvät porttiskannauksessa. Kaikista porteista saamme selville palvelun nimen ja version, sekä banner grabin tuloksen. Banner sisältää yleisesti portissa majailevan palvelun nimen ja version. Palveluiden versiotieto on erityisen tärkeää, sillä sen perusteella voimme etsiä Internetistä haavoittuvuuksia ja kohdistaa hyökkäyksemme versiokohtaista haavoittuvuutta vastaan. 
 
 Haluan tallentaa skannauksen tulokset Metasploitin tietokantaan, ja luon sitä varten itselleni workspacen eli työtilan Metasploitiin. Tämä tapahtuu Metasploitin konsolissa komennolla `workspace -a {workspacen nimi}`. Komento `workspace` näyttää käytettävissä olevat ja käytössä olevan työtilan. 
+
 ![](./img/mt_workspace.png)
 
 Tallennan nmap-tulokset kantaan komennolla `db_nmap {ip-osoite}`. Ohjelma skannaa kohdekoneen uudestaan ja tallentaa tulokset tietokantaan.
+
 ![](./img/db_nmap.png)
 
 
 Skannauksen tulokset ovat nyt helposti saatavilla esimerkiksi komennolla `services` joka listaa kaikki skannauksen tuloksena saadut avoimet palvelut.
+
 ![](./img/mt_services_kannassa.png)
 
 
@@ -115,6 +118,7 @@ Skannauksen tulokset ovat nyt helposti saatavilla esimerkiksi komennolla `servic
 Valitsin ensimäiseksi hyökkäyskohteekseni Metasploitablen PostgreSQL-palvelun. Valitsin kyseisen tietokantapalvelun siksi, että olen työelämässä hallinnoinut PostgreSQL-tietokantoja mutta en ole koskaan kohdannut yhtäkään murtautumisyritystä tätä palvelua kohtaan.
 
 Metasploitablessa on valmiina tietokanta hyökkäyksistä, joita ohjelmassa on helppo käyttää. Komento `search` etsii Metsaploitin tietokannasta vapaasanahaulla hyökkäyksiä. 
+
 ![](./img/mt_search_possu.png)
 
 Valitseni hyökkäykseksi 11: `exploit/linux/postgres/postgres_payload`. Löysin kuvauksen hyökkäyksestä täältä: https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/linux/postgres/postgres_payload
@@ -122,11 +126,13 @@ Valitseni hyökkäykseksi 11: `exploit/linux/postgres/postgres_payload`. Löysin
 Hyökkäys mahdollistaa ulkopuolisen koodin suorittamisen, ja tätä kautta mahdollisesti suoran yhteyden palvelimen komentotulkkiin.
 
 Otan em. exploitin käyttöön komennolla `use {exploitin nimi}`
+
 ![](./img/possu_use.png)
 
 Kun hyökkäys on alustettu, komento `show payloads` näyttää kaikki exploitiin soveltuvat payloadit.
 
 Komento `options` näyttää exploittikohtaiset asetukset. Asetuksista selviää, että käytössä on payload nimeltään `linux/x86/meterpreter/reverse_tcp`. 
+
 ![](./img/possu_options.png)
 
 Seuraavaksi asetan Metasploitable 2 -koneen kohteeksi hyökkäyksellemme. Tämä tapahtuu komennolla `set RHOSTS {kohde}`
@@ -145,6 +151,7 @@ Seuraavaksi päätin kokeilla palvelimen ProFTPD -palveluun murtautumista. Nouda
 ![](./img/mt_ftp_payload%20puuttu.png)
 
 Kokeilin muutamaa eri payloadia, mutta hyökkäys ei onnistunut.
+
 ![](./img/mt_ftp_payload_tryhard.png)
 
 Viimein sain yhteyden auki, mutta se kaatui miltei heti aukeamisen jälkeen. Sain kirjoitettua kuitenkin kirjoitettua tiedoston, joka näkyi Metasploitable 2 -koneen juuressa.
@@ -172,6 +179,7 @@ Porttiskannauksen tuloksena selviää, että koneen käyttöjärjestelmä on  De
 
 
 Olen joskus lukenut ohimennen verkkosivujen skannauksesta bruteforce-wordlist -työkaluilla. Pienen kaivelun jälkeen selvisi että Kali Linuxissa on valmiina dirb, joka tekee juuri tämän: se etsii oman sanakirjastonsa perusteella hakemistoja ja tiedostoja verkkosivulta. Komento `dirb {verkko-osoite}` tulostaa seuraavaa:
+
 ![](./img/dirb.png)
 
 dirbin löytämä, hämmentävän kiusallisesti nimetty 'secret' -hakemisto kiinnostaa, ja päätän kurkistaa sinne selaimen avulla. Sivu on tyhjä eikä dev-tabin verkkoliikenteessä näy mitään erikoista.
