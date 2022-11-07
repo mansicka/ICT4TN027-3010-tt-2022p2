@@ -145,6 +145,8 @@ Tämän jälkeen voin aloittaa hyökkäyksen. Tämä tapahtuu komennolla `exploi
 
 Hyökkäys onnistuu, ja saan hallintaani komentotulkin kohdekoneella. Pääsen lukemaan tiedostoja ja navigoimaan tiedostojärjestelmässä.
 
+*EDIT: Harjoitusta läpikäydessä selvisi, että hyökkäys ei shell-yhteydestä huolimatta onnistunut kokonaisuudessan. Se ei ole täysi tty-yhteys. Tämä johtuu siitä, että LHOST ei ole asetettu, ja meterpreter ei soita kotiin mihinkään. Avattu shell-yhteys on raakile.*
+
 ## d) Metasploitable 2:n murtautuminen: ProFTPD
 
 Seuraavaksi päätin kokeilla palvelimen ProFTPD -palveluun murtautumista. Noudatin samaa kaavaa hyökkäyksen alustamisessa kuin edellisessä, mutta unohdin tarkastaa exploitin asetuksista sopivan payloadin. 
@@ -154,7 +156,10 @@ Kokeilin muutamaa eri payloadia, mutta hyökkäys ei onnistunut.
 
 ![](./img/mt_ftp_payload_tryhard.png)
 
-Viimein sain yhteyden auki, mutta se kaatui miltei heti aukeamisen jälkeen. Sain kirjoitettua kuitenkin kirjoitettua tiedoston, joka näkyi Metasploitable 2 -koneen juuressa.
+Viimein sain yhteyden auki, mutta se kaatui miltei heti aukeamisen jälkeen. Sain kirjoitettua kuitenkin kirjoitettua tiedoston, joka näkyi Metasploitable 2 -koneen juuressa. 
+
+*EDIT: Harjoitusta läpikäydessä selvisi, että todennäköisesti LHOSTin puuttuminen oli syynä exploittien epäonnistumisiin.*
+
 
 ![](./img/mt_terkut.png)
 
