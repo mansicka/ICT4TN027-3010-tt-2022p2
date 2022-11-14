@@ -1,5 +1,7 @@
 Harjoitus 0
 
+Linkki tehtävänantoon: https://terokarvinen.com/2022/tunkeutumistestaus-ict4tn027-3010-syksylla-2022/
+
 Tässä harjoituksessa seurasin Chromium-selaimen verkkoliikennettä www.hs.fi -osoitteeseen yhdistätteässä.
 ![asdas](./k.png)
 

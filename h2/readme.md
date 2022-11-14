@@ -1,4 +1,7 @@
 # h2
+
+Linkki tehtävänantoon: https://terokarvinen.com/2022/tunkeutumistestaus-ict4tn027-3010-syksylla-2022/
+
 ## a) Metasploitable 2 asennus
 
 Asensin Metasploitable 2:n virtuaalikoneeseen. Loin Virtualboxissa yhteisen virtuaaliverkon Kali Linuxia pyörittävää virtuaalikonetta ja Metasploitablea varten.
