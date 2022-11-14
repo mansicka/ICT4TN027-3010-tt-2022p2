@@ -221,7 +221,7 @@ Täytän kentät satunnaisilla arvoilla ja painan 'Submit'. Mitään ei näytä 
 
  ![](./img/wg13.png)
 
- Mitä jos kopioisin verifyMethod-parametrin arvoineen toimimattomaan pyyntöön? Chronium-selaimissa on kätevä ominaisuus, jolla voi kopioida requestin fetch-funktiona. Nappaan pyynnön selaimesta talteen. Ajatuksena on ajaa se selaimen konsolista. Pyyntö näyttää tältä:
+ Mitä jos kopioisin verifyMethod-parametrin arvoineen toimimattomaan pyyntöön? Chromium-selaimissa on kätevä ominaisuus, jolla voi kopioida requestin fetch-funktiona. Nappaan pyynnön selaimesta talteen. Ajatuksena on ajaa se selaimen konsolista. Pyyntö näyttää tältä:
     
      fetch("http://192.168.0.155:8080/WebGoat/auth-bypass/verify-account", {
     "headers": {
@@ -262,7 +262,7 @@ Painan 'submit' ja tehtävä ratkeaa!
 
 Tehtävässä pitää napata talteen "Log in" -nappulan aiheuttaman pyyntö.
 
-Pyyntö näkyy chronium-selaimissa developer-toolsin network-välilehdellä:
+Pyyntö näkyy Chromium-selaimissa developer-toolsin network-välilehdellä:
 
 ![](./img/wg16.png)
 
