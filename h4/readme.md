@@ -175,7 +175,7 @@ Yleisin tapa skannata kohde tai verkko on antaa suora osoite tai osoiteavaruus s
 
         
         
-        Lukiessani dokumentaatiota aiheesta silmääni osui eräs nmapin erikoinen toiminnallisuus: mahdollisuus skannata täysin satunnaisia verkko-osoitteita: komento `nmap -iR {skannattavien osoitteiden määrä}` arpoo osoitteita mielivaltaisesti. En oikein näe mitään järkevää käyttöä tälle ominaisuudelle.
+*Lukiessani dokumentaatiota aiheesta silmääni osui eräs nmapin erikoinen toiminnallisuus: mahdollisuus skannata täysin satunnaisia verkko-osoitteita: komento `nmap -iR {skannattavien osoitteiden määrä}` arpoo osoitteita mielivaltaisesti. En oikein näe mitään järkevää käyttöä tälle ominaisuudelle.*
 
 
 ### h) nmap -oA
