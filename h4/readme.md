@@ -206,7 +206,49 @@ Nmapissa on mahdollista seurata skannauksen kulkua ja ohjelman toimintaa sen aja
 
 - d/D on debuggauksen taso - harvoin tarpeellinen ja tarkoitettu lähinnä sovelluskehittäjille
 
--p/P listaa paketteja, joita nmap lähettää ja vastaanottaa
+- p/P listaa paketteja, joita nmap lähettää ja vastaanottaa
 
-- Mikä tahnsa muu kuin em. komennot kertoo yleistilan skannauksesta
+- Mikä tahansa muu kuin em. komennot kertoo yleistilan skannauksesta
+
+
+## l) sudo nmap
+
+### Normaali nmap:
+
+![](./img/namp-wos.png)
+
+vs
+
+## sudo nmap
+
+![](./img/nmap-sudo.png)
+
+Sudona ajettuna nmap vaikuttaa tekevän "melkein stealth" -skannauksen (`-sS` -flagi).
+
+Tarkastelen hieman yksittäisen portin liikennettä ja huomioni vaikuttaa pitävän paikkansa: liikenne on `-sS` -skannaukselle tyypillistä SYN -> SYN ACK -> RST -liikennettä.
+
+![](./img/sudo-nmap-445.png)
+
+Miksi näin? Nmapin dokumentaatiosta löytyy vastaus:
+
+*By default, Nmap performs a SYN Scan, though it substitutes a connect scan if the user does not have proper privileges to send raw packets (requires root access on Unix). Of the scans listed in this section, unprivileged users can only execute connect and FTP bounce scans.*
+
+(https://nmap.org/book/man-port-scanning-techniques.html)
+
+
+## k) nmap -A
+
+Nmap ajettuna `-A` -vivun kanssa tarkoittaa Aggressiivista skannausta: aggressiivinen skannaus pyrkii selvittämään kohteen käyttöjärjestelmän (`-o` -flagi), ajaa nmapin oletusskriptit (`-sC`) ja pyrkii selvittämään avoimien porttien palveluiden versiot (`-sV`). Voinee siis olettaa, että aggressivinen skannaus on sekä huomattavasti helpommin havaittavissa verkkoa valvovien osapuolten toimesta, sekä sen kesto on huomattavasti pidempi kuin normaali skannaus.
+
+(https://learning.oreilly.com/library/view/nmap-network-exploration/9781786467454/916fdbc5-6ae2-4f8b-a5a2-c2515309daad.xhtml)
+
+Normaali nmap -skannaus:
+
+![](./img/nmap-woa.png)
+
+vs `-A` -skannaus:
+
+![](./img/nmap-a.png)
+
+Aggressivinen skannaus saa siis paljon enemmän tietoa kohteesta, sen palveluista ja haavoittuvuuksista. Esimerkkinä kuvissa korostettuna portissa 21 asuva ftp-palvelu, josta aggressiivinen skannaus saa paljon enemmän selville - nmap onnistuu jopa kirjautumaan palveluun anonyymina käyttäjänä. Nämä kirjautumisyritykset ja niiden raportointi on osa nmapin oletusskriptipakettia. Myös pakettien määrä on aggressiivisessa skannauksessa huomattavasti suurempi: 2027 vs. 4233.
 
