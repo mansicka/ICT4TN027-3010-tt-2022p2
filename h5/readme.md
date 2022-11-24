@@ -84,7 +84,7 @@ Avaan omalla palvelimellani asustavan Webgoatin ja Mitmproxy saa kaapattua liike
 
 ## d) Totally Legit Sertificate: TLS-liikenne ja Mitmproxy
 
-Avatessa https-sivun Mitmproxyn läpi, salaus ei toimi. Ircquotes.fi:n liikenteen salaus ei toimi:
+Avatessa https-sivun Mitmproxyn läpi, salaus ei toimi:
 
 ![](./img/mitm3.png)
 
@@ -124,9 +124,11 @@ Tälläkään kertaa ei onnistu. Firefox valittaa:
 
 ![](./img/mitm6.png)
 
-Olisiko certin luomisessa mennyt jokin mönkään. Kokeilen luoda sen uudestaan, mutta tilanne ei muutu. HSTS:n kiertämiseen on varmasti keinoja, mutta se vaikuttaa ylimääräiseltä säädöltä: https://www.maxivanov.io/http-strict-transport-security/
+Olisiko certin luomisessa mennyt jokin mönkään? Kokeilen luoda sen uudestaan, mutta tilanne ei muutu. HSTS:n kiertämiseen on varmasti keinoja, mutta se vaikuttaa ylimääräiseltä säädöltä: https://www.maxivanov.io/http-strict-transport-security/
 
-Jätän homman sikseen. Teoriassa homma olisi voinut toimia, jos olisin valinnut jonkin muun hostin kuin Google.com. 
+Teoriassa homma olisi voinut toimia, jos olisin valinnut jonkin muun domainin kuin Google.com. Kokeilen vielä sitä. Luon uuden certin uudelle domainille.
+
+Kokeilin ircquotes.fi ja pari muuta domainta, mutta en saanut toimimaan. Jotain omassa toiminnassa mättää, mutta en tajua mikä.
 
 
 
